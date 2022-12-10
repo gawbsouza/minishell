@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnuncio- <gnuncio-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 22:00:03 by acesar-l          #+#    #+#             */
-/*   Updated: 2022/12/08 00:05:01 by gnuncio-         ###   ########.fr       */
+/*   Updated: 2022/12/10 18:09:39 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,6 @@ typedef struct s_cmd
 	t_file	*infile;
 	t_file	*outfile;
 }	t_cmd;
-
-typedef struct s_data
-{
-	char	*prompt_path;
-	char	**env;
-	int		last_exit_code;
-	t_file	*empty_infile;
-	t_file	*discarded_outfile;
-
-	t_bool	exit_status;
-}	t_data;
 
 typedef struct s_minishell
 {
