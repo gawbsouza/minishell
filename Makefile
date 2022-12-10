@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gnuncio- <gnuncio-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 20:55:32 by acesar-l          #+#    #+#              #
-#    Updated: 2022/12/09 18:28:50 by gnuncio-         ###   ########.fr        #
+#    Updated: 2022/12/10 17:56:04 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,5 +115,10 @@ fclean: 	clean
 			@make -s -C $(LIBFT_PATH) fclean
 
 re:			fclean $(NAME)
+
+val: all
+	@printf "{\n\t<Readline>\n\tMemcheck:Leak\n\t...\n\tfun:readline\n\t...\n}" > local.supp
+	@valgrind --suppressions=./local.supp --leak-check=full --show-leak-kinds=all ./minishell
+	@rm local.supp
 
 .PHONY:		all clean fclean re
