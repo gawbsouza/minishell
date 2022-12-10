@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnuncio- <gnuncio-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:26:52 by acesar-l          #+#    #+#             */
-/*   Updated: 2022/12/09 10:31:30 by gnuncio-         ###   ########.fr       */
+/*   Updated: 2022/12/10 17:42:29 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	*current_path(void)
 		return (NULL);
 	else
 	{
-		printf(PURPLE);
+		printf(CYAN);
 		path = ft_strappend(&path, ">");
 		path = ft_strappend(&path, " ");
 		path = ft_strappend(&path, RESET);

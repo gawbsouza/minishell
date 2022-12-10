@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnuncio- <gnuncio-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:42:16 by gasouza           #+#    #+#             */
-/*   Updated: 2022/12/09 11:09:33 by gnuncio-         ###   ########.fr       */
+/*   Updated: 2022/12/10 17:42:37 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	handle_sigint(int signal)
 	(void)signal;
 	write(1, "\n", 1);
 	rl_replace_line("", 0);
-	printf(PURPLE);
+	printf(CYAN);
 	rl_on_new_line();
 	rl_redisplay();
 }
