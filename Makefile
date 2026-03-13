@@ -121,4 +121,26 @@ val: all
 	@valgrind --suppressions=./local.supp --leak-check=full --show-leak-kinds=all ./minishell
 	@rm local.supp
 
-.PHONY:		all clean fclean re
+
+TESTS_PATH	= ./tests
+UNITY_PATH	= $(TESTS_PATH)/unity
+
+SRCS_NO_MAIN = $(filter-out ./sources/minishell.c, $(SRCS))
+TEST_SRCS    = $(TESTS_PATH)/test_utils.c $(TESTS_PATH)/test_envp.c $(TESTS_PATH)/test_lexical.c $(TESTS_PATH)/test_parser.c $(TESTS_PATH)/test_builtins.c $(TESTS_PATH)/test_syntax.c
+TEST_OBJS    = $(SRCS_NO_MAIN:.c=.o)
+UNITY_OBJ    = $(UNITY_PATH)/unity.o
+
+test: $(LIBFT) $(UNITY_OBJ) $(TEST_OBJS)
+	@for test_file in $(TEST_SRCS); do \
+		$(LINKER) $(CFLAGS) -I$(INCS_PATH) -I$(UNITY_PATH) $$test_file $(UNITY_OBJ) $(TEST_OBJS) -lreadline -L$(LIBFT_PATH) -lft -o $(TESTS_PATH)/test_suite; \
+		./$(TESTS_PATH)/test_suite; \
+		rm $(TESTS_PATH)/test_suite; \
+	done
+
+test_integration: all
+	@bash tests/integration/tester.sh
+
+$(UNITY_OBJ): $(UNITY_PATH)/unity.c
+	@$(COMPILER) $(CFLAGS) -I$(UNITY_PATH) $< -o $@
+
+.PHONY:		all clean fclean re test

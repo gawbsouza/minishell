@@ -1,4 +1,4 @@
-name: Main branch CI
+name: Minishell CI
 
 on:
   push:
@@ -9,57 +9,48 @@ on:
 jobs:
 
   norminette:
-  
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v4
-    
     - name: Install norminette
-      run: python3 -m pip install --upgrade pip setuptools && python3 -m pip install norminette
-    
-    - name: Remove test files
-      run: rm -rf tests libraries/Unity
-    
+      run: python3 -m pip install norminette
     - name: Running Norminette
-      run: norminette
-      
+      run: norminette sources includes
+
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-      
-    - name: Building Binaries
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y libreadline-dev
+    - name: Building Binary
       run: make
-    
-  tests:
 
+  unit_tests:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-      
-    - name: Build Tests
-      run: make -s -C tests
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y libreadline-dev
+    - name: Running Unit Tests
+      run: make test
 
-    - name: Running Tests
-      run: ./tests/Tests_Runner -v 
+  integration_tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y libreadline-dev
+    - name: Running Integration Tests
+      run: make test_integration
 
   valgrind:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-    
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y libreadline-dev valgrind
     - name: Build Tests
-      run: make -s -C tests
-  
-    - name: Install Valgrind
-      run: sudo apt install valgrind
-      
-    - name: Running Valgrind
-      run: valgrind --leak-check=full --show-leak-kinds=all --error-exitcode=1 ./tests/Tests_Runner -v 
+      run: |
+        make -s test.
