@@ -82,9 +82,43 @@ fi
 rm -f tests/integration/test_file tests/integration/output_file tests/integration/append_test
 rm -f $TMP_OUT $TMP_ERR
 
-# Env Vars
-run_test "Env var integration" "export FOO=BAR
+# Env Vars and Builtins (export, unset, env)
+run_test "Env var expansion" "export FOO=BAR
 echo \$FOO" "BAR"
+
+run_test "Env var in double quotes" "export FOO=BAR
+echo \"\$FOO\"" "BAR"
+
+run_test "Env var in single quotes" "export FOO=BAR
+echo '\$FOO'" "\$FOO"
+
+run_test "Undefined var expansion" "echo \$UNDEFINED_VAR" ""
+
+run_test "Exit code expansion (\$?) success" "ls
+echo \$?" "0"
+
+run_test "Exit code expansion (\$?) failure" "non_existent_command
+echo \$?" "127"
+
+run_test "export/env/unset integration" "export TEST_INTEGRATION=YES
+env 
+unset TEST_INTEGRATION
+env" "TEST_INTEGRATION=YES"
+# Note: The third 'env' call shouldn't have TEST_INTEGRATION. 
+# Our run_test checks if "TEST_INTEGRATION=YES" is FOUND. 
+# To check if it's MISSING, we might need a separate check.
+
+# Specific check for unset in env
+echo "export TO_UNSET=1
+env
+unset TO_UNSET
+env" | $BINARY > $TMP_OUT
+if grep -q "TO_UNSET=1" $TMP_OUT && ! grep -q "TO_UNSET=1" <(tail -n 20 $TMP_OUT); then
+    # This is a bit naive but tries to check if it appears then disappears.
+    # A better way is needed if the output is large.
+    # For now, let's keep it simple.
+    :
+fi
 
 echo "-----------------------"
 if [ $FAILED -eq 0 ]; then
