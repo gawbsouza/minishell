@@ -53,4 +53,4 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y libreadline-dev valgrind
     - name: Build Tests
       run: |
-        make -s test.
+        make -s test

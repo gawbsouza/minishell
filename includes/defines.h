@@ -13,12 +13,12 @@
 #ifndef DEFINES_H
 # define DEFINES_H
 
-# define    SPACE	        	32
-# define    COMMAND_NOT_FOUND   127
-# define    INPUT               0
-# define    OUTPUT              1
-# define    EMPTY_INFILE        "/tmp/empty_infile"
-# define    TMP_OUTFILE         "/tmp/discarded"
-# define    HEREDOC_PATH        "/tmp/herecdoc_minihell"
+# define SPACE				32
+# define COMMAND_NOT_FOUND	127
+# define INPUT				0
+# define OUTPUT				1
+# define EMPTY_INFILE		"/tmp/empty_infile"
+# define TMP_OUTFILE		"/tmp/discarded"
+# define HEREDOC_PATH		"/tmp/herecdoc_minihell"
 
 #endif

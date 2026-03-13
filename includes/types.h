@@ -25,14 +25,16 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-typedef enum e_ftype {
+typedef enum e_ftype
+{
 	COMMON_FILE_IN,
 	COMMON_FILE_OUT,
 	APPEND_FILE,
 	HEREDOC_FILE
 }	t_ftype;
 
-typedef struct s_file {
+typedef struct s_file
+{
 	char	*path;
 	int		fd;
 	t_ftype	type;
