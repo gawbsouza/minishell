@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 static char	*current_path(void);
 static void	prompt_null(char *prompt);
 char		*get_readline_init(void);

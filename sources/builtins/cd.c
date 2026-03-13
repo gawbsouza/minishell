@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 int			cd(char **args, int argc);
 static int	cd_to_home(void);
 

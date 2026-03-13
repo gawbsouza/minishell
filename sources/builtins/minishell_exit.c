@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 void		minishell_exit(const char *exit_code);
 static int	set_exit_code(const char *exit_code);
 

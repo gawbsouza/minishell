@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 int	error(char *message, int exit_code)
 {
 	printf(GREY"minishell: %s\n"RESET, message);

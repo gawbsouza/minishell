@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 char	**get_cmd_paths(void)
 {
 	char	*paths_to_be_split;

@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 static void	execute_single_cmd(t_cmd *command, int fd_pipe_in);
 static int	execute_cmd_to_pipe(t_cmd *command, int fd_pipe_in);
 static int	execute(t_cmd *command);

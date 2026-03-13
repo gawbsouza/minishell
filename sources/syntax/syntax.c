@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 static t_bool	are_the_quotation_marks_closed(char *expression);
 static t_bool	is_syntax_valid(char *expression);
 static t_bool	validate_syntax_aux(char *expression);

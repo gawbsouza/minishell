@@ -16,7 +16,7 @@ jobs:
     - name: Install norminette
       run: python3 -m pip install norminette
     - name: Running Norminette
-      run: norminette sources includes
+      run: norminette sources includes | grep "Error!" && exit 1 || exit 0
 
   build:
     runs-on: ubuntu-latest

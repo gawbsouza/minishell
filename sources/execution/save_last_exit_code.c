@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 void	save_last_exit_code(int wstatus)
 {
 	char	**tmp_env;

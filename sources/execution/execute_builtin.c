@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 int			execute_builtin(t_cmd *cmd);
 static void	set_exit_code(int exit_code);
 

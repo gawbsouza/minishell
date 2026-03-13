@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 void	dead_minihell(void)
 {
 	clear_history();

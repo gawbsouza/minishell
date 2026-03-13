@@ -27,6 +27,8 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 
+extern t_minishell	*g_minishell;
+
 void		prompt(void);
 t_bool		syntatic_validations(char *prompt);
 int			error(char *message, int exit_code);

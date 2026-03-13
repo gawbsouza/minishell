@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 static void		handle_sigint(int signal);
 void			handle_sigquit(int signal);
 static void		handle_sigint_fork(int signal);

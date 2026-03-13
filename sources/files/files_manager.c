@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 static void		file_error_message(t_file	*file);
 static int		read_heredoc(t_file *file, char *limiter);
 

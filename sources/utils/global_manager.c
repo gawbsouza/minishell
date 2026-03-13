@@ -12,8 +12,6 @@
 
 #include "minishell.h"
 
-extern t_minishell	*g_minishell;
-
 void	init_global_struct(void)
 {
 	g_minishell->last_exit_code = 0;
