@@ -17,7 +17,7 @@ static char		*str_add_postfix(const char *postfix, const char *str);
 static char		*str_add_prefix_postfix(const char *value, const char *str);
 
 char	*token_to_str(t_token *token)
-{	
+{
 	if (!token)
 		return (NULL);
 	if (token->type == STRING_UNQUOTED)

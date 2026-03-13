@@ -20,10 +20,6 @@ t_bool	is_string_token(t_token *token)
 		return (true);
 	if (token->type == STRING_DQ_CLOSED)
 		return (true);
-	if (token->type == STRING_DQ_CLOSED)
-		return (true);
-	if (token->type == STRING_SQ_CLOSED)
-		return (true);
 	if (token->type == STRING_SQ_CLOSED)
 		return (true);
 	return (false);

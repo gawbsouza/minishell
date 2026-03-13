@@ -33,8 +33,8 @@ t_cmd	*cmd_parse_str(const char *str)
 	cmd = cmd_create("", NULL, NULL, NULL);
 	while (current && current->type != PIPE)
 	{
-		if (set_string(cmd, &current, &prompt) || \
-			set_in_out(cmd, &current, &next, &prompt))
+		if (set_string(cmd, &current, &prompt)
+			|| set_in_out(cmd, &current, &next, &prompt))
 			continue ;
 		token_destroy(current);
 		current = next;

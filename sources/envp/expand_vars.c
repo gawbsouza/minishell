@@ -57,9 +57,9 @@ static void	expand_token(t_token *token, char *const *envp)
 	i = 0;
 	while (token->value[i])
 	{
-		if (token->value[i] == '$' && \
-			(token->value[i + 1] == '_' || ft_isalpha(token->value[i + 1]) || \
-				token->value[i + 1] == '?'))
+		if (token->value[i] == '$'
+			&& (token->value[i + 1] == '_' || ft_isalpha(token->value[i + 1])
+				|| token->value[i + 1] == '?'))
 		{
 			append_str(&newstr, token->value, start_copy_at, i - start_copy_at);
 			i += append_var(&newstr, token->value + i + 1, envp);

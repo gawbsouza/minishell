@@ -20,8 +20,8 @@ void	init_global_struct(void)
 	if (g_minishell->last_exit_code)
 		file_destroy(&g_minishell->temp_outfile);
 	g_minishell->temp_outfile = file_create("TMP_OUTFILE", 0, COMMON_FILE_OUT);
-	g_minishell->temp_outfile->fd = \
-	open(TMP_OUTFILE, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	g_minishell->temp_outfile->fd = open(TMP_OUTFILE,
+			O_WRONLY | O_CREAT | O_TRUNC, 0644);
 }
 
 void	clear_global(void)

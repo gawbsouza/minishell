@@ -20,7 +20,7 @@ void	minishell_init_files(void)
 	if (g_minishell->temp_outfile)
 		file_destroy(&g_minishell->temp_outfile);
 	g_minishell->temp_outfile = file_create("TMP_OUTFILE", 0, COMMON_FILE_OUT);
-	g_minishell->temp_outfile->fd = \
-	open(TMP_OUTFILE, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	g_minishell->temp_outfile->fd = open(TMP_OUTFILE,
+			O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	init_files();
 }

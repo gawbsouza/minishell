@@ -30,9 +30,8 @@ int	export(char *const *args, char ***envp)
 	{
 		if (args[i][0] == '\0' || args[i][0] == '=')
 		{
-			printf(GREY \
-			"minishell: export: `%s': not a valid identifier\n" \
-			RESET, args[i]);
+			printf(GREY "minishell: export: `%s': ", args[i]);
+			printf("not a valid identifier\n" RESET);
 			return_value = 1;
 		}
 		else

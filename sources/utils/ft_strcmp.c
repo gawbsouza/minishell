@@ -14,5 +14,7 @@
 
 t_bool	ft_strcmp(const char *str1, const char *str2)
 {
+	if (!str1 || !str2)
+		return (false);
 	return (ft_strncmp(str1, str2, ft_strlen(str2) + 1) == 0);
 }

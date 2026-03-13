@@ -79,11 +79,11 @@ static void	file_error_message(t_file *file)
 	if (file->type == COMMON_FILE_IN)
 	{
 		if (access(file->path, F_OK) == -1)
-			printf \
-			(GREY"minishell: %s : No such file or directory\n"RESET, file->path);
+			printf(GREY"minishell: %s : No such file or directory\n"RESET,
+				file->path);
 		else if (access(file->path, R_OK) == -1)
-			printf \
-			(GREY"minishell: %s : Permission denied\n"RESET, file->path);
+			printf(GREY"minishell: %s : Permission denied\n"RESET,
+				file->path);
 		file->fd = g_minishell->temp_infile->fd;
 	}
 	else
